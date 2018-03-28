@@ -7,20 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>350</width>
-    <height>425</height>
+    <height>475</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>350</width>
-    <height>425</height>
+    <height>475</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Expense Entry</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="plainTextEditCost">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -35,7 +35,7 @@
      </font>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="labelDateOfPurchase">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -91,7 +91,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="labelPurchaseAmount">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -109,7 +109,7 @@
      <string>Purchase Amount</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="labelNameOfPurchase">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -127,7 +127,7 @@
      <string>Name of Purchase</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="labelCatOfPurchase">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -145,7 +145,7 @@
      <string>Category of Purchase</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButtonSubmit">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -163,7 +163,7 @@
      <string>Submit</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButtonCancel">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -181,7 +181,7 @@
      <string>Reset Fields</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="comboBoxCats">
     <property name="geometry">
      <rect>
       <x>211</x>
@@ -251,7 +251,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="labelDescOfPurchase">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -269,7 +269,7 @@
      <string>Description of Purchase</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit_2">
+   <widget class="QPlainTextEdit" name="plainTextEditDesc">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -284,7 +284,7 @@
      </font>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit_3">
+   <widget class="QPlainTextEdit" name="plainTextEditName">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -297,6 +297,25 @@
      <font>
       <pointsize>10</pointsize>
      </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelMessage">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>370</y>
+      <width>311</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
@@ -313,25 +332,28 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionNewDatabaseFile"/>
+    <addaction name="actionOpenDatabase"/>
+    <addaction name="actionSave_Database"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuEdit">
+   <widget class="QMenu" name="menuOptions">
     <property name="title">
-     <string>Edit</string>
+     <string>Options</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menuUser">
-    <property name="title">
-     <string>User</string>
-    </property>
+    <addaction name="actionAddExpenses"/>
+    <addaction name="actionViewExpenses"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionWhatIs"/>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuExpense_Tracker"/>
-   <addaction name="menuEdit"/>
-   <addaction name="menuUser"/>
+   <addaction name="menuOptions"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -343,8 +365,122 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNewDatabaseFile">
+   <property name="text">
+    <string>New Database File</string>
+   </property>
+  </action>
+  <action name="actionOpenDatabase">
+   <property name="text">
+    <string>Open Database</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAddExpenses">
+   <property name="text">
+    <string>Add Expenses</string>
+   </property>
+  </action>
+  <action name="actionViewExpenses">
+   <property name="text">
+    <string>View Expenses</string>
+   </property>
+  </action>
+  <action name="actionWhatIs">
+   <property name="text">
+    <string>What is this?</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionSave_Database">
+   <property name="text">
+    <string>Save Database</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>plainTextEditName</tabstop>
+  <tabstop>plainTextEditDesc</tabstop>
+  <tabstop>comboBoxCats</tabstop>
+  <tabstop>dateEdit</tabstop>
+  <tabstop>plainTextEditCost</tabstop>
+  <tabstop>pushButtonCancel</tabstop>
+  <tabstop>pushButtonSubmit</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButtonCancel</sender>
+   <signal>released()</signal>
+   <receiver>plainTextEditCost</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>214</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCancel</sender>
+   <signal>released()</signal>
+   <receiver>plainTextEditDesc</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>74</x>
+     <y>172</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCancel</sender>
+   <signal>released()</signal>
+   <receiver>plainTextEditName</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>61</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>194</x>
+     <y>65</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCancel</sender>
+   <signal>released()</signal>
+   <receiver>labelMessage</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>366</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>132</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

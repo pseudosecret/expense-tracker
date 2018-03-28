@@ -32,3 +32,8 @@ HEADERS += \
 
 FORMS += \
         expenseentrywindow.ui
+
+QT += sql
+
+LIBS += \
+        -lsqlite3
