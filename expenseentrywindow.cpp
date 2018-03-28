@@ -26,7 +26,8 @@ void ExpenseEntryWindow::on_actionNewDatabaseFile_triggered()
 {
     QString fileName = QFileDialog::getSaveFileName(this,
         tr("Save Database File"), "",
-        tr("SQLite3 (*.sqlite3);;All Files (*)"));
+        tr("SQLite3 (*.sqlite3);;All Files (*)")) +
+            ".sqlite3";
     if (fileName.isEmpty())
         return;
     else {
@@ -36,19 +37,13 @@ void ExpenseEntryWindow::on_actionNewDatabaseFile_triggered()
                 file.errorString());
             return;
         }
-        QFileInfo fileInfo(file.fileName());
-        QString theFileName(fileInfo.fileName());
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName(theFileName);
+        db.setDatabaseName(fileName);
         db.open();
         QSqlQuery query;
         query.exec("CREATE TABLE test "
                    "(id INTEGER PRIMARY KEY, "
                    "field VARCHAR(20))");
-//        query.exec("INSERT INTO test "
-//                   "(id, field) "
-//                   "VALUES "
-//                   "(1, 'it works!')");
     }
 }
 
