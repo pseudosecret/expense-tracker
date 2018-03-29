@@ -26,11 +26,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         expenseentrywindow.cpp \
-    db.cpp
+    dbmanager.cpp
 
 HEADERS += \
         expenseentrywindow.h \
-    db.h
+    dbmanager.h
 
 FORMS += \
         expenseentrywindow.ui

@@ -1,6 +1,6 @@
 #include "expenseentrywindow.h"
 #include "ui_expenseentrywindow.h"
-#include <db.cpp>
+#include <dbmanager.cpp>
 #include <QString>
 #include <QFile>
 #include <QFileInfo>
@@ -38,10 +38,7 @@ void ExpenseEntryWindow::on_actionNewDatabaseFile_triggered()
                 file.errorString());
             return;
         }
-        Db database;
-        database.openDBConnection(fileName);
-        database.createDatabase();
-        database.closeDBConnection();
+// TODO db stuff goes here...
     }
 }
 
