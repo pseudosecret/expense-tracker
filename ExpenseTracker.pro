@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        expenseentrywindow.cpp
+        expenseentrywindow.cpp \
+    db.cpp
 
 HEADERS += \
-        expenseentrywindow.h
+        expenseentrywindow.h \
+    db.h
 
 FORMS += \
         expenseentrywindow.ui

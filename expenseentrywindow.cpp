@@ -1,5 +1,6 @@
 #include "expenseentrywindow.h"
 #include "ui_expenseentrywindow.h"
+#include <db.cpp>
 #include <QString>
 #include <QFile>
 #include <QFileInfo>
@@ -37,13 +38,10 @@ void ExpenseEntryWindow::on_actionNewDatabaseFile_triggered()
                 file.errorString());
             return;
         }
-        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName(fileName);
-        db.open();
-        QSqlQuery query;
-        query.exec("CREATE TABLE test "
-                   "(id INTEGER PRIMARY KEY, "
-                   "field VARCHAR(20))");
+        Db database;
+        database.openDBConnection(fileName);
+        database.createDatabase();
+        database.closeDBConnection();
     }
 }
 
